@@ -1,0 +1,70 @@
+:root {
+    --saize-red: #E6001A;
+    --saize-green: #0AA547;
+}
+
+body {
+    background-size: cover;
+    background-image: url("src/img/wood.jpeg");
+    margin: 0;
+}
+
+header {
+    background-color: var(--saize-green);
+    height: 70px;
+    
+    border-bottom: 5px solid var(--saize-red);
+}
+
+main {
+    display: flex;
+}
+
+header h1 {
+    margin: 0;
+    padding-top: 10px;
+    padding-left: 30px;
+    font-size: 30px;
+    color: var(--saize-red);
+    -webkit-text-stroke: 1px #ffffff;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#display {
+    background-color: #fffde8;
+    height: 600px;
+    width: 1000px;
+    margin-top: 20px;
+    margin-left: 100px;
+    text-align:center;
+}
+
+#start h1 {
+    line-height:calc( 600px - 50px ); /*( BOXの高さ - padding幅 )*/
+}
+
+#question-area h1 {
+    padding-top: 180px;
+}
+
+#answer-area div {
+    margin-top: 150px;
+}
+
+#answer-area {
+    margin-top: 100px;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+#result-area {
+    color: #ffffff;
+    margin: 30px;
+    font-size: 14px;
+}
+
+#time {
+    font-size: 10px;
+    width: 300px;
+    letter-spacing: 0px;
+}

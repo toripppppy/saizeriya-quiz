@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>サイゼリア商品番号クイズ</title>
+</head>
+<body>
+    <header>
+        <h1>Saizeriya 商品番号クイズ</h1>
+    </header>
+    <main>
+        <div id="display">
+            <div id="question-area" style="display: none;">
+                <h1 id="question">辛味チキン</h1>
+            </div>
+            <div id="answer-area" style="display: none;">
+                <div>
+                    <h1 id="answer">▯▯▯▯</h1>
+                </div>
+            </div>
+            <div id="start" onclick="gameStart()">
+                <h1 id="start-label">Click to Start</h1>
+            </div>
+        </div>
+        <div id="result-area">
+            <h1 id="time">██████████████████████████████</h1>
+            <h1 id="score">score: 0</h1>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>
