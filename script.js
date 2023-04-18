@@ -11,12 +11,15 @@ const timeLabel = document.getElementById("time");
 let isRunning = false;
 let question = "";
 let score = 0;
-let time = 60;
+const timelimit = 60;
 
 
 // ゲームスタート
 function gameStart() {
     if (isRunning) return;
+
+    // スコア初期化
+    score = 0;
 
     isRunning = true;
 
@@ -40,7 +43,9 @@ function gameStart() {
 
 
 function init() {
+    initAnswer();
     showGameDisplay(true);
+    display.onclick = "";
 
     // 問題を生成
     while (true) {
@@ -65,19 +70,19 @@ function showGameDisplay(flag) {
 
 function initTimer() {
     // タイマー
-    let fixedTime = time;
+    let time = timelimit;
     timeLabel.innerText = "██████████████████████████████";
 
     let id = setInterval(function() {
         time--;
-        if (time % (fixedTime / 30) === 0) {
+        if (time % (timelimit / 30) === 0) {
             timeLabel.innerText = timeLabel.innerText.slice(0, -1);
         }
         if (time === 0) {
             finishGame();
             clearInterval(id);
         }
-    }, 1000);
+    }, 100);
 }
 
 
@@ -137,18 +142,19 @@ function judgeAnswer() {
     incorrect();
 }
 
-
+// 正解
 function correct() {
-    init();
-
     score++;
     updateScore();
+
+    init();
 }
 
-
+// 不正解
 function incorrect() {
     let count = 3;
 
+    // 不正解エフェクト
     const id = setInterval(() => {
         count--;
         answer.style = `margin: ${Math.sin(count * 90) * 30}px`;
@@ -165,6 +171,14 @@ function updateScore() {
 
 
 function finishGame() {
-    questionText.innerText = "終了！"
-    answer.innerText = "score: " + score;
+    questionText.innerText = "score: " + score;
+    answer.innerText = "Click to Restart"
+
+    isRunning = false;
+    display.onclick = readyToRestart;
+}
+
+function readyToRestart() {
+    startLabel.innerText = "Click to Start";
+    showGameDisplay(false);
 }
