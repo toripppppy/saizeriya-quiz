@@ -82,7 +82,7 @@ function initTimer() {
             finishGame();
             clearInterval(id);
         }
-    }, 100);
+    }, 1000);
 }
 
 
